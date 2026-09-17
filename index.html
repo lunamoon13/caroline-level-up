@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caroline Ferreira | Pixel Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="main-container">
+    
+    <!-- HEADER HUD -->
+    <div class="hud">
+      <span>HP: UI/UX LEVEL 01</span>
+      <span>☁</span>
+      <span>♥ PLAYER 01</span>
+    </div>
+
+    <!-- ================= PÁGINA 1: COVER (LAGO, BANCO & ANIMAÇÃO DA BOLA) ================= -->
+    <div id="page-cover" class="portfolio-page active">
+      <section class="cover-section">
+        <div class="cover-border">
+          <h2 class="year">2026</h2>
+          <h1 class="title">PORTFOLIO</h1>
+          <button class="start-btn" id="startBtn" onclick="playFetchAnimation()">START</button>
+          
+          <div class="scene">
+            <!-- Parque com Árvores -->
+            <div class="park-trees">
+              <div class="pixel-tree tree-1"></div>
+              <div class="pixel-tree tree-2"></div>
+              <div class="pixel-tree tree-3"></div>
+              <div class="pixel-tree tree-4"></div>
+            </div>
+
+            <!-- Lago Animado com Peixes -->
+            <div class="lake">
+              <div class="fish fish-1">🐟</div>
+              <div class="fish fish-2">🐠</div>
+            </div>
+
+            <!-- Banquinho de Madeira -->
+            <div class="bench"></div>
+            
+            <!-- Personagem Sentada no Banco -->
+            <div class="caroline-avatar-seated" id="heroine">
+              <div class="hair-top"></div>
+              <div class="braid braid-left"></div>
+              <div class="braid braid-right"></div>
+              <div class="head">
+                <div class="glasses-round"></div>
+                <div class="smile"></div>
+              </div>
+              <div class="body-outfit"></div>
+              <div class="seated-legs"></div>
+            </div>
+
+            <!-- Bolinha e Gato -->
+            <div class="ball" id="toyBall">🎾</div>
+            <div class="cat" id="kitty">🐱</div>
+            
+            <div class="ground"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= PÁGINA 2: ABOUT ME (LAYOUT ORIGINAL + CARDS AMPLIADOS) ================= -->
+    <div id="page-about" class="portfolio-page">
+      <section class="level-01-section">
+        <div class="level-intro">
+          <h2>Level 01</h2>
+          <p>Meet the player</p>
+          <h3 class="name">Caroline Ferreira</h3>
+        </div>
+
+        <div class="ds-ecosystem">
+          <!-- Conectores Tracejados Retornados -->
+          <div class="connection-line line-1"></div>
+          <div class="connection-line line-2"></div>
+          <div class="connection-line line-3"></div>
+
+          <!-- Nintendo DS Centralizado -->
+          <div class="nintendo-ds">
+            <div class="ds-top">
+              <div class="mario-bg">
+                <div class="luigi-character">
+                  <div class="luigi-cap"><span class="l-logo">L</span></div>
+                  <div class="luigi-face"><div class="luigi-mustache"></div></div>
+                  <div class="luigi-shirt"></div>
+                  <div class="luigi-overalls">
+                    <div class="button btn-l"></div>
+                    <div class="button btn-r"></div>
+                  </div>
+                </div>
+                <div class="pipe"></div>
+              </div>
+              <span class="star-left">⭐</span>
+              <span class="star-right">⭐</span>
+            </div>
+            <div class="ds-hinge"></div>
+            <div class="ds-bottom">
+              <div class="dpad"><div class="dpad-v"></div><div class="dpad-h"></div></div>
+              <div class="touch-screen"></div>
+              <div class="action-buttons"><div class="btn"></div><div class="btn"></div></div>
+            </div>
+          </div>
+
+          <!-- Janela Superior Direita: Hello !! -->
+          <div class="pink-window window-hello">
+            <div class="win-header"><span>Hello !!</span></div>
+            <div class="win-body">
+              <p><strong>Player:</strong> Caroline Ferreira</p>
+              <p><strong>Role:</strong> Dev & UI/UX Enthusiast</p>
+              <p><strong>Perfil Profissional:</strong> Apaixonada por tecnologia, desenvolvimento de software e constante busca por aprender coisas novas e superar desafios técnicos.</p>
+              <p><strong>Hobbies & Interesses:</strong> Ler livros e quadrinhos 📚, escutar música 🎧 e passar o tempo livre criando novos códigos 💻.</p>
+            </div>
+          </div>
+
+          <!-- Janela Inferior Esquerda: Weapons Mastery -->
+          <div class="pink-window window-weapons">
+            <div class="win-header"><span>Weapons Mastery</span></div>
+            <div class="win-body icons">
+              <span>🐍</span> <span>🎨</span> <span>💻</span>
+            </div>
+          </div>
+
+          <!-- Janela Inferior Centro: Training Log -->
+          <div class="pink-window window-training">
+            <div class="win-header"><span>Training Log</span></div>
+            <div class="win-body">
+              <p><strong>Ciência da Computação</strong></p>
+              <p>Universidade Cruzeiro do Sul</p>
+              <p class="sub-text">Foco: Programação Python & Desenvolvimento de Soluções Tecnológicas</p>
+            </div>
+          </div>
+
+          <!-- Janela Inferior Direita: Skills Mastery -->
+          <div class="pink-window window-skills">
+            <div class="win-header"><span>Skills Mastery</span></div>
+            <div class="win-body">
+              <ul>
+                <li>• Desenvolvimento Back-End (Python)</li>
+                <li>• Prototipagem & Design de Interfaces (Figma)</li>
+                <li>• Aprendizado contínuo & Resolução de Problemas</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= PÁGINA 3: MISSIONS (PROJETOS) ================= -->
+    <div id="page-missions" class="portfolio-page">
+      <section class="missions-section">
+        <h2 class="level-title">Level 02</h2>
+        <p class="subtitle">Missions & Projects</p>
+
+        <div class="project-card">
+          <div class="card-header">Mission 01: Aplicativo de Agendamento</div>
+          <div class="card-body">
+            <h3>App de Agendamento</h3>
+            <p>Projeto acadêmico focado na experiência de agendamento de consultas com interface limpa e intuitiva.</p>
+            <a href="#" class="project-btn">ACESSAR PROTÓTIPO NO FIGMA</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-header">Mission 02: Cafeteria Temática Stardew Valley</div>
+          <div class="card-body">
+            <h3>App Cafeteria Stardew Valley</h3>
+            <p>Interface interativa inspirada no universo do jogo Stardew Valley, permitindo personalizar bebidas e navegar em um ambiente temático.</p>
+            <a href="#" class="project-btn">ACESSAR PROTÓTIPO NO FIGMA</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- NAV BAR BOTTOM -->
+    <div class="nav-bar">
+      <button onclick="showPage('page-cover')" class="nav-btn active" id="btn-cover">Cover</button>
+      <span class="star">★</span>
+      <button onclick="showPage('page-about')" class="nav-btn" id="btn-about">About Me</button>
+      <span class="star">★</span>
+      <button onclick="showPage('page-missions')" class="nav-btn" id="btn-missions">Missions</button>
+    </div>
+
+    <!-- FOOTER MARQUEE -->
+    <div class="footer-marquee">
+      <span>★ SUPER CAROLINE WORLD ★ COMPUTER SCIENCE STUDENT ★ PYTHON & UI/UX ★</span>
+    </div>
+
+  </div>
+
+  <script>
+    let isAnimating = false;
+
+    function playFetchAnimation() {
+      if (isAnimating) return;
+      isAnimating = true;
+
+      const ball = document.getElementById('toyBall');
+      const cat = document.getElementById('kitty');
+
+      // Reset inicial
+      ball.className = 'ball';
+      cat.className = 'cat';
+      cat.textContent = '🐱';
+      void ball.offsetWidth;
+      void cat.offsetWidth;
+
+      // 1. Jogar a bolinha
+      ball.classList.add('thrown');
+
+      // 2. Gato corre para pegar
+      setTimeout(() => {
+        cat.classList.add('fetch');
+        cat.textContent = '😸';
+      }, 600);
+
+      // 3. Gato traz a bolinha de volta até a mão da boneca
+      setTimeout(() => {
+        cat.classList.remove('fetch');
+        cat.classList.add('return');
+        ball.classList.remove('thrown');
+        ball.classList.add('returned');
+      }, 1800);
+
+      // 4. Conclusão da ação e retorno ao estado original
+      setTimeout(() => {
+        ball.className = 'ball';
+        cat.className = 'cat';
+        cat.textContent = '🐱';
+        isAnimating = false;
+      }, 3200);
+    }
+
+    function showPage(pageId) {
+      document.querySelectorAll('.portfolio-page').forEach(page => page.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(pageId).classList.add('active');
+      if(pageId === 'page-cover') document.getElementById('btn-cover').classList.add('active');
+      if(pageId === 'page-about') document.getElementById('btn-about').classList.add('active');
+      if(pageId === 'page-missions') document.getElementById('btn-missions').classList.add('active');
+    }
+  </script>
+</body>
+</html>
