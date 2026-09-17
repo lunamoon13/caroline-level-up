@@ -18,11 +18,10 @@
       <span>♥ PLAYER 01</span>
     </div>
 
-    <!-- ================= PÁGINA 1: COVER (LAGO, BANCO & ANIMAÇÃO DA BOLA) ================= -->
+    <!-- ================= PÁGINA 1: COVER ================= -->
     <div id="page-cover" class="portfolio-page active">
       <section class="cover-section">
         <div class="cover-border">
-          <h2 class="year">2026</h2>
           <h1 class="title">PORTFOLIO</h1>
           <button class="start-btn" id="startBtn" onclick="playFetchAnimation()">START</button>
           
@@ -67,7 +66,7 @@
       </section>
     </div>
 
-    <!-- ================= PÁGINA 2: ABOUT ME (LAYOUT ORIGINAL + CARDS AMPLIADOS) ================= -->
+    <!-- ================= PÁGINA 2: ABOUT ME ================= -->
     <div id="page-about" class="portfolio-page">
       <section class="level-01-section">
         <div class="level-intro">
@@ -77,7 +76,7 @@
         </div>
 
         <div class="ds-ecosystem">
-          <!-- Conectores Tracejados Retornados -->
+          <!-- Conectores Tracejados -->
           <div class="connection-line line-1"></div>
           <div class="connection-line line-2"></div>
           <div class="connection-line line-3"></div>
@@ -152,7 +151,7 @@
       </section>
     </div>
 
-    <!-- ================= PÁGINA 3: MISSIONS (PROJETOS) ================= -->
+    <!-- ================= PÁGINA 3: MISSIONS ================= -->
     <div id="page-missions" class="portfolio-page">
       <section class="missions-section">
         <h2 class="level-title">Level 02</h2>
@@ -204,23 +203,19 @@
       const ball = document.getElementById('toyBall');
       const cat = document.getElementById('kitty');
 
-      // Reset inicial
       ball.className = 'ball';
       cat.className = 'cat';
       cat.textContent = '🐱';
       void ball.offsetWidth;
       void cat.offsetWidth;
 
-      // 1. Jogar a bolinha
       ball.classList.add('thrown');
 
-      // 2. Gato corre para pegar
       setTimeout(() => {
         cat.classList.add('fetch');
         cat.textContent = '😸';
       }, 600);
 
-      // 3. Gato traz a bolinha de volta até a mão da boneca
       setTimeout(() => {
         cat.classList.remove('fetch');
         cat.classList.add('return');
@@ -228,7 +223,6 @@
         ball.classList.add('returned');
       }, 1800);
 
-      // 4. Conclusão da ação e retorno ao estado original
       setTimeout(() => {
         ball.className = 'ball';
         cat.className = 'cat';

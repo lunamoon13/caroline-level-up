@@ -2,263 +2,741 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Press Start 2P', monospace;
 }
 
 body {
-  background-color: #050505;
-  background-image: 
-    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
-    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px);
-  background-size: 150px 150px, 70px 70px;
-  background-position: 0 0, 35px 35px;
-  font-family: 'Press Start 2P', monospace;
+  background-color: #050510;
   color: #fff;
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .main-container {
   width: 100%;
-  max-width: 500px;
-  min-height: 100vh;
-  border: 2px solid #00ffcc;
-  box-shadow: 0 0 15px #00ffcc;
-  position: relative;
+  max-width: 900px;
+  background-color: #0d0b26;
+  border: 4px solid #00ffcc;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background-color: #0d001a;
+  gap: 15px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* NAVEGAÇÃO PÁGINAS */
+/* HUD Header */
+.hud {
+  display: flex;
+  justify-content: space-between;
+  background-color: #050510;
+  border: 2px solid #00ffcc;
+  padding: 10px 15px;
+  font-size: 10px;
+  color: #00ffcc;
+}
+
+/* Page Control */
 .portfolio-page {
   display: none;
-  padding: 10px;
 }
+
 .portfolio-page.active {
   display: block;
 }
 
-.hud {
-  display: flex;
-  justify-content: space-between;
-  font-size: 8px;
-  color: #00ffcc;
-  padding: 15px 10px;
-  border-bottom: 2px solid #00ffcc;
+/* ================= COVER PAGE ================= */
+.cover-section {
+  text-align: center;
 }
 
-/* === PÁGINA 1: COVER COM BANCO, LAGO E PEIXES === */
 .cover-border {
-  border: 2px solid #00ffcc;
-  border-radius: 12px;
-  height: 420px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  background: radial-gradient(circle at top, rgba(0,255,204,0.15), transparent 65%);
-  overflow: hidden;
-}
-.year { color: #00ffcc; font-size: 16px; margin-bottom: 8px; }
-.title { color: #ff55ff; font-size: 22px; text-shadow: 2px 2px 0px #00ffcc; margin-bottom: 15px; }
-.start-btn {
-  background-color: #00ffcc; color: #000; font-family: inherit; font-size: 10px;
-  padding: 8px 18px; border: 2px solid #fff; border-radius: 4px; cursor: pointer; z-index: 10;
+  border: 3px solid #00ffcc;
+  padding: 20px 10px;
+  background-color: #0a0820;
 }
 
-.scene { position: absolute; bottom: 0; width: 100%; height: 180px; }
-.ground {
-  position: absolute; bottom: 0; width: 100%; height: 20px;
-  background: repeating-linear-gradient(90deg, #2e8b57, #2e8b57 10px, #006400 10px, #006400 20px);
+.title {
+  color: #ff55aa;
+  font-size: 24px;
+  text-shadow: 3px 3px 0px #000;
+  margin-bottom: 15px;
+}
+
+.start-btn {
+  background-color: #00ffcc;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 3px 3px 0px #fff;
+  margin-bottom: 25px;
+  transition: transform 0.1s;
+}
+
+.start-btn:hover {
+  transform: scale(1.05);
+  background-color: #55ffdd;
+}
+
+/* Scene */
+.scene {
+  height: 240px;
+  background-color: #090314;
+  position: relative;
+  overflow: hidden;
   border-top: 2px solid #00ffcc;
 }
 
-/* Árvores de fundo */
-.park-trees { position: absolute; bottom: 20px; width: 100%; height: 120px; }
-.pixel-tree { position: absolute; bottom: 0; background-color: #228b22; border-radius: 16px 16px 0 0; border: 2px solid #00ffcc; }
-.pixel-tree::after { content: ''; position: absolute; bottom: -2px; left: 35%; width: 30%; height: 25px; background-color: #8b4513; }
-.tree-1 { left: 10px; width: 45px; height: 90px; }
-.tree-2 { left: 90px; width: 50px; height: 110px; }
-.tree-3 { right: 110px; width: 50px; height: 115px; }
-.tree-4 { right: 10px; width: 45px; height: 95px; }
+/* Background Trees */
+.park-trees {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  height: 100px;
+  pointer-events: none;
+}
 
-/* Lago com Peixes Se Mexendo */
+.pixel-tree {
+  position: absolute;
+  bottom: 0;
+  width: 40px;
+  height: 70px;
+  background: #1b7a3e;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: inset -5px 0 0 #12542a;
+}
+.pixel-tree::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 15px;
+  width: 10px;
+  height: 20px;
+  background: #5c3a21;
+}
+
+.tree-1 { left: 30px; }
+.tree-2 { left: 160px; height: 85px; }
+.tree-3 { right: 260px; height: 75px; }
+.tree-4 { right: 40px; }
+
+/* Animated Lake & Fish */
 .lake {
-  position: absolute; bottom: 5px; right: 20px; width: 120px; height: 35px;
-  background-color: #1e90ff; border-radius: 50%; border: 2px solid #00ffcc;
-  overflow: hidden; z-index: 2;
+  position: absolute;
+  bottom: 25px;
+  right: 50px;
+  width: 120px;
+  height: 45px;
+  background-color: #1a8cff;
+  border-radius: 50%;
+  border: 3px solid #0055b3;
+  box-shadow: 0 0 10px rgba(0, 140, 255, 0.6);
+  overflow: hidden;
 }
-.fish { position: absolute; font-size: 10px; animation: swimFish 4s infinite linear; }
-.fish-1 { top: 6px; }
-.fish-2 { top: 18px; animation-delay: -2s; animation-duration: 5s; }
 
-@keyframes swimFish {
-  0% { left: -15px; transform: scaleX(1); }
-  50% { left: 110px; transform: scaleX(1); }
+.fish {
+  position: absolute;
+  font-size: 12px;
+  animation: swim 4s infinite linear;
+}
+
+.fish-1 { top: 10px; animation-duration: 5s; }
+.fish-2 { bottom: 8px; animation-duration: 3.5s; animation-delay: 1.5s; }
+
+@keyframes swim {
+  0% { left: 110%; transform: scaleX(1); }
+  50% { transform: scaleX(1); }
   51% { transform: scaleX(-1); }
-  100% { left: -15px; transform: scaleX(-1); }
+  100% { left: -30%; transform: scaleX(-1); }
 }
 
-/* Banquinho */
+/* Bench */
 .bench {
-  position: absolute; bottom: 20px; left: 40px; width: 45px; height: 16px;
-  background-color: #8b4513; border: 2px solid #000; border-radius: 2px; z-index: 4;
+  position: absolute;
+  bottom: 30px;
+  left: 90px;
+  width: 60px;
+  height: 20px;
+  background: #8b4513;
+  border: 2px solid #4a250a;
+  box-shadow: inset 0 4px 0 #a65216;
 }
-.bench::before { content: ''; position: absolute; top: -10px; left: 0; width: 41px; height: 8px; background-color: #a0522d; border: 2px solid #000; }
-.bench::after { content: ''; position: absolute; bottom: -8px; left: 4px; width: 33px; height: 8px; background-color: #000; }
-
-/* Boneca Sentada */
-.caroline-avatar-seated { position: absolute; bottom: 28px; left: 50px; width: 24px; height: 36px; z-index: 5; }
-.hair-top { position: absolute; top: 0; left: 2px; width: 20px; height: 10px; background-color: #1a1a1a; border-radius: 8px 8px 0 0; }
-.braid { position: absolute; width: 5px; height: 20px; background-color: #1a1a1a; top: 8px; }
-.braid-left { left: -2px; border-radius: 3px 0 3px 3px; }
-.braid-right { right: -2px; border-radius: 0 3px 3px 3px; }
-.head { position: absolute; top: 6px; left: 3px; width: 18px; height: 16px; background-color: #a06540; border-radius: 4px; }
-.glasses-round { position: absolute; top: 3px; left: 1px; width: 16px; height: 6px; border: 2px solid #000; border-radius: 4px; background-color: rgba(255,255,255,0.2); }
-.smile { position: absolute; bottom: 2px; left: 6px; width: 6px; height: 2px; background-color: #000; }
-.body-outfit { position: absolute; bottom: 8px; left: 3px; width: 18px; height: 14px; background-color: #111; border-top: 4px solid #ff007f; border-radius: 2px; }
-.seated-legs { position: absolute; bottom: 0; left: 5px; width: 14px; height: 8px; background-color: #111; border-radius: 0 0 4px 4px; }
-
-/* Bolinha e Gato */
-.ball { position: absolute; bottom: 35px; left: 72px; font-size: 10px; z-index: 6; }
-.ball.thrown { animation: throwBall 1.2s forwards ease-out; }
-.ball.returned { animation: returnBall 1.2s forwards ease-in-out; }
-
-@keyframes throwBall {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(100px, -30px); }
-  100% { transform: translate(190px, 0); }
+.bench::before, .bench::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  width: 6px;
+  height: 10px;
+  background: #333;
 }
-@keyframes returnBall {
-  0% { transform: translate(190px, 0); }
-  100% { transform: translate(0, 0); }
+.bench::before { left: 6px; }
+.bench::after { right: 6px; }
+
+/* Seated Avatar */
+.caroline-avatar-seated {
+  position: absolute;
+  bottom: 40px;
+  left: 105px;
+  width: 30px;
+  height: 45px;
+  z-index: 5;
 }
 
-.cat { position: absolute; bottom: 20px; left: 110px; font-size: 18px; z-index: 5; transition: transform 1.2s ease-in-out; }
-.cat.fetch { transform: translateX(150px); }
-.cat.return { transform: translateX(-35px); }
+.hair-top {
+  position: absolute;
+  top: 0;
+  left: 3px;
+  width: 24px;
+  height: 14px;
+  background: #1a1a1a;
+  border-radius: 8px 8px 0 0;
+}
 
-/* === PÁGINA 2: ABOUT ME (DISPOSIÇÃO ORIGINAL AMPLIADA) === */
-.level-intro h2 { color: #ff55ff; font-size: 18px; margin-bottom: 4px; }
-.level-intro p { color: #fff; font-size: 9px; margin-bottom: 4px; }
-.level-intro h3.name { color: #00ffcc; font-size: 13px; margin-bottom: 10px; }
+.braid {
+  position: absolute;
+  top: 10px;
+  width: 6px;
+  height: 32px;
+  background: #1a1a1a;
+  border-radius: 3px;
+}
+.braid-left { left: -2px; }
+.braid-right { right: -2px; }
 
-.ds-ecosystem { position: relative; height: 500px; }
+.head {
+  position: absolute;
+  top: 8px;
+  left: 5px;
+  width: 20px;
+  height: 18px;
+  background: #c58c65;
+  border-radius: 4px;
+}
 
-/* Linhas Guia */
-.connection-line { position: absolute; border: 1px dashed #fff; z-index: 1; }
-.line-1 { top: 110px; right: 130px; width: 40px; }
-.line-2 { bottom: 170px; left: 140px; height: 30px; }
-.line-3 { bottom: 130px; left: 240px; height: 40px; }
+.glasses-round {
+  position: absolute;
+  top: 4px;
+  left: 1px;
+  width: 18px;
+  height: 7px;
+  border: 2px solid #000;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.2);
+}
 
+.smile {
+  position: absolute;
+  bottom: 3px;
+  left: 7px;
+  width: 6px;
+  height: 2px;
+  background: #600;
+}
+
+.body-outfit {
+  position: absolute;
+  top: 24px;
+  left: 4px;
+  width: 22px;
+  height: 15px;
+  background: #e60073;
+  border-radius: 3px 3px 0 0;
+}
+
+.seated-legs {
+  position: absolute;
+  bottom: -4px;
+  left: 6px;
+  width: 18px;
+  height: 8px;
+  background: #222;
+  border-radius: 2px;
+}
+
+/* Ball & Cat */
+.ball {
+  position: absolute;
+  bottom: 35px;
+  left: 135px;
+  font-size: 14px;
+  z-index: 6;
+  transition: all 0.5s ease;
+}
+
+.ball.thrown {
+  animation: ballArc 1.2s forwards ease-in-out;
+}
+
+.ball.returned {
+  left: 135px !important;
+  bottom: 35px !important;
+}
+
+@keyframes ballArc {
+  0% { left: 135px; bottom: 35px; }
+  50% { left: 320px; bottom: 90px; }
+  100% { left: 480px; bottom: 32px; }
+}
+
+.cat {
+  position: absolute;
+  bottom: 30px;
+  left: 180px;
+  font-size: 20px;
+  z-index: 6;
+  transition: left 1.2s linear, transform 0.2s;
+}
+
+.cat.fetch {
+  left: 470px;
+  transform: scaleX(1);
+}
+
+.cat.return {
+  left: 175px;
+  transform: scaleX(-1);
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background-color: #1c7a27;
+  border-top: 4px solid #2cd93d;
+}
+
+/* ================= LEVEL 01 (ABOUT ME) ================= */
+.level-01-section {
+  padding: 10px;
+}
+
+.level-intro {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.level-intro h2 {
+  color: #ff55aa;
+  font-size: 18px;
+}
+
+.level-intro p {
+  font-size: 10px;
+  color: #aaa;
+  margin: 5px 0;
+}
+
+.level-intro .name {
+  color: #00ffcc;
+  font-size: 16px;
+}
+
+/* Ecosystem Grid Layout */
+.ds-ecosystem {
+  position: relative;
+  min-height: 480px;
+  margin-top: 20px;
+}
+
+/* Connecting Dashed Lines */
+.connection-line {
+  position: absolute;
+  border: 1px dashed #ff55aa;
+  z-index: 1;
+}
+
+.line-1 {
+  top: 60px;
+  left: 200px;
+  width: 80px;
+  height: 0;
+}
+
+.line-2 {
+  top: 260px;
+  left: 120px;
+  width: 100px;
+  height: 0;
+}
+
+.line-3 {
+  top: 260px;
+  right: 120px;
+  width: 100px;
+  height: 0;
+}
+
+/* Nintendo DS */
 .nintendo-ds {
-  position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
-  background-color: #ff007f; width: 140px; height: 160px;
-  border-radius: 10px; padding: 6px; border: 2px solid #fff;
-  z-index: 5; box-shadow: 4px 4px 0 rgba(0,0,0,0.5);
-}
-.ds-top { background: #333; height: 60px; border: 2px solid #000; border-radius: 4px; position: relative; overflow: hidden; }
-.mario-bg { background: #5c94fc; width: 100%; height: 100%; position: relative; }
-
-.pipe { width: 24px; height: 28px; background: linear-gradient(90deg, #00aa00, #00ff00, #00aa00); border: 2px solid #000; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
-.pipe::before { content: ''; position: absolute; top: 0; left: -3px; width: 26px; height: 6px; background: linear-gradient(90deg, #00aa00, #00ff00, #00aa00); border: 2px solid #000; }
-
-.luigi-character { width: 18px; height: 24px; position: absolute; left: 50%; transform: translateX(-50%); animation: luigiPipeDown 3.2s infinite ease-in-out; }
-.luigi-cap { width: 14px; height: 5px; background-color: #00aa00; border-radius: 3px 3px 0 0; position: relative; margin: 0 auto; }
-.l-logo { font-size: 4px; color: #fff; position: absolute; top: 0; left: 5px; font-weight: bold; }
-.luigi-face { width: 12px; height: 7px; background-color: #ffe0bd; margin: 0 auto; position: relative; }
-.luigi-mustache { width: 10px; height: 2px; background-color: #000; position: absolute; bottom: 1px; left: 1px; border-radius: 2px; }
-.luigi-shirt { width: 12px; height: 3px; background-color: #00aa00; margin: 0 auto; }
-.luigi-overalls { width: 12px; height: 9px; background-color: #2a52be; margin: 0 auto; position: relative; }
-.button { width: 2px; height: 2px; background-color: #ffff00; position: absolute; top: 2px; }
-.btn-l { left: 1px; } .btn-r { right: 1px; }
-
-@keyframes luigiPipeDown {
-  0% { top: -5px; opacity: 1; }
-  50% { top: 32px; opacity: 1; }
-  60% { top: 40px; opacity: 0; }
-  100% { top: -5px; opacity: 0; }
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: 220px;
+  background: #ff55aa;
+  border: 3px solid #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(255, 85, 170, 0.4);
+  z-index: 2;
 }
 
-.star-left, .star-right { position: absolute; font-size: 8px; top: 4px; color: yellow; }
-.star-left { left: 4px; } .star-right { right: 4px; }
+.ds-top {
+  background: #000;
+  border: 2px solid #fff;
+  height: 110px;
+  border-radius: 6px;
+  position: relative;
+  padding: 5px;
+}
 
-.ds-hinge { height: 3px; background: #99004d; margin: 3px 0; }
-.ds-bottom { background: #ff55ff; height: 65px; border: 2px solid #000; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; padding: 4px; }
-.touch-screen { width: 60px; height: 42px; background: #fff; border: 2px solid #000; }
-.dpad { position: relative; width: 18px; height: 18px; }
-.dpad-v { position: absolute; width: 5px; height: 18px; background: #000; left: 6px; }
-.dpad-h { position: absolute; width: 18px; height: 5px; background: #000; top: 6px; }
-.action-buttons { display: flex; flex-direction: column; gap: 3px; }
-.btn { width: 6px; height: 6px; background: #000; border-radius: 50%; }
+.mario-bg {
+  background: #5c94fc;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
 
-/* JANELAS ROSAS DISPOSTAS COMO NO DESIGN ORIGINAL (AMPLIADAS) */
+.luigi-character {
+  position: absolute;
+  bottom: 10px;
+  left: 25px;
+  width: 22px;
+  height: 38px;
+}
+
+.luigi-cap {
+  width: 20px;
+  height: 8px;
+  background: #00a800;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+}
+
+.l-logo {
+  font-size: 6px;
+  color: #fff;
+  position: absolute;
+  top: 1px;
+  left: 7px;
+  font-weight: bold;
+}
+
+.luigi-face {
+  width: 16px;
+  height: 12px;
+  background: #ffcca6;
+  margin: 0 auto;
+  position: relative;
+}
+
+.luigi-mustache {
+  width: 14px;
+  height: 4px;
+  background: #000;
+  position: absolute;
+  bottom: 2px;
+  left: 1px;
+  border-radius: 2px;
+}
+
+.luigi-shirt {
+  width: 18px;
+  height: 8px;
+  background: #00a800;
+  margin: 0 auto;
+}
+
+.luigi-overalls {
+  width: 18px;
+  height: 12px;
+  background: #0022cc;
+  margin: 0 auto;
+  position: relative;
+}
+
+.button {
+  width: 3px;
+  height: 3px;
+  background: #ffcc00;
+  position: absolute;
+  top: 2px;
+  border-radius: 50%;
+}
+.btn-l { left: 3px; }
+.btn-r { right: 3px; }
+
+.pipe {
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  width: 30px;
+  height: 35px;
+  background: #00a800;
+  border: 2px solid #000;
+}
+
+.pipe::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -4px;
+  width: 34px;
+  height: 8px;
+  background: #00a800;
+  border: 2px solid #000;
+}
+
+.star-left, .star-right {
+  position: absolute;
+  top: 5px;
+  font-size: 10px;
+}
+.star-left { left: 8px; }
+.star-right { right: 8px; }
+
+.ds-hinge {
+  height: 8px;
+  background: #d43b8d;
+  margin: 4px 0;
+  border-radius: 3px;
+}
+
+.ds-bottom {
+  background: #ff55aa;
+  height: 100px;
+  position: relative;
+}
+
+.touch-screen {
+  width: 110px;
+  height: 80px;
+  background: #fff;
+  border: 2px solid #000;
+  margin: 0 auto;
+  position: relative;
+  top: 10px;
+}
+
+.dpad {
+  position: absolute;
+  left: 10px;
+  top: 35px;
+}
+.dpad-v { width: 10px; height: 30px; background: #000; position: absolute; left: 10px; top: -10px; }
+.dpad-h { width: 30px; height: 10px; background: #000; position: absolute; top: 0; }
+
+.action-buttons {
+  position: absolute;
+  right: 15px;
+  top: 35px;
+  display: flex;
+  gap: 6px;
+}
+
+.action-buttons .btn {
+  width: 12px;
+  height: 12px;
+  background: #000;
+  border-radius: 50%;
+}
+
+/* Pink Windows General */
 .pink-window {
   position: absolute;
-  background-color: #ffb6c1;
-  border: 2px solid #fff;
-  box-shadow: 3px 3px 0 #000;
-  z-index: 6;
+  background: #fff;
+  border: 2px solid #ff55aa;
+  box-shadow: 4px 4px 0px #ff55aa;
+  color: #000;
+  z-index: 3;
 }
+
 .win-header {
-  background-color: #ff69b4;
+  background: #ff55aa;
   color: #fff;
-  padding: 4px;
-  font-size: 7px;
-  border-bottom: 2px solid #fff;
+  padding: 4px 8px;
+  font-size: 9px;
+}
+
+.win-body {
+  padding: 10px;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+/* Positions for Windows */
+
+/* Top Right Window: Hello !! */
+.window-hello {
+  top: 10px;
+  right: 20px;
+  width: 380px;
+}
+
+.window-hello p {
+  margin-bottom: 8px;
+}
+
+.window-hello strong {
+  color: #d43b8d;
+}
+
+/* Bottom Left Window: Weapons Mastery */
+.window-weapons {
+  top: 270px;
+  left: 20px;
+  width: 220px;
+}
+
+.window-weapons .icons {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Bottom Center Window: Training Log */
+.window-training {
+  top: 270px;
+  left: 260px;
+  width: 250px;
+}
+
+.window-training strong {
+  color: #e60073;
+}
+
+.window-training .sub-text {
+  font-size: 8px;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* Bottom Right Window: Skills Mastery (Ajustado a posição top para não cobrir a caixa Hello) */
+.window-skills {
+  top: 270px;
+  right: 20px;
+  width: 320px;
+}
+
+.window-skills ul {
+  list-style: none;
+}
+
+.window-skills li {
+  margin-bottom: 6px;
+  font-size: 8.5px;
+}
+
+/* ================= MISSIONS PAGE ================= */
+.missions-section {
+  padding: 10px;
+}
+
+.level-title {
+  color: #ff55aa;
+  font-size: 18px;
   text-align: center;
 }
-.win-body {
-  padding: 8px;
-  font-size: 7px;
-  line-height: 1.5;
+
+.subtitle {
+  font-size: 10px;
+  color: #aaa;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.project-card {
+  border: 2px solid #00ffcc;
+  background: #0a0820;
+  margin-bottom: 15px;
+}
+
+.card-header {
+  background: #00ffcc;
   color: #000;
-  background-color: #ffe4e1;
+  padding: 6px 10px;
+  font-size: 10px;
+  font-weight: bold;
 }
-.win-body strong { color: #ff007f; }
-.win-body p { margin-bottom: 5px; }
-.win-body ul { list-style: none; }
-.win-body li { margin-bottom: 4px; }
-.win-body.icons { font-size: 14px; display: flex; justify-content: space-around; padding: 8px; }
-.sub-text { font-size: 6px; color: #555; }
 
-.window-hello { top: 10px; right: 5px; width: 165px; }
-.window-weapons { top: 200px; left: 5px; width: 130px; }
-.window-training { top: 310px; left: 80px; width: 155px; }
-.window-skills { top: 220px; right: 5px; width: 160px; }
+.card-body {
+  padding: 12px;
+}
 
-/* === PÁGINA 3: MISSIONS === */
-.missions-section { padding: 10px; }
-.level-title { color: #ff55ff; font-size: 14px; margin-bottom: 5px; }
-.subtitle { color: #00ffcc; font-size: 8px; margin-bottom: 20px; }
+.card-body h3 {
+  font-size: 12px;
+  color: #ff55aa;
+  margin-bottom: 8px;
+}
 
-.project-card { border: 2px solid #00ffcc; margin-bottom: 15px; background-color: rgba(0,0,0,0.6); }
-.card-header { background-color: #00ffcc; color: #000; padding: 6px; font-size: 7px; text-transform: uppercase; }
-.card-body { padding: 10px; font-size: 7px; line-height: 1.6; }
-.card-body h3 { color: #ff55ff; margin-bottom: 8px; font-size: 9px; }
-.card-body p { margin-bottom: 12px; color: #ddd; }
+.card-body p {
+  font-size: 9px;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 12px;
+}
+
 .project-btn {
-  display: block; background-color: #ff007f; color: #fff; text-decoration: none;
-  text-align: center; padding: 8px; font-size: 6px; border: 1px solid #fff; box-shadow: 2px 2px 0 #000;
+  display: inline-block;
+  background: #ff55aa;
+  color: #fff;
+  text-decoration: none;
+  font-size: 8px;
+  padding: 8px 12px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 0px #fff;
 }
-.project-btn:hover { background-color: #ff55ff; }
 
-/* BARRA DE NAVEGAÇÃO */
+.project-btn:hover {
+  background: #e60073;
+}
+
+/* Nav Bar Bottom */
 .nav-bar {
-  background-color: #ff007f;
-  display: flex; justify-content: space-around; align-items: center;
-  padding: 10px 5px; border-top: 2px solid #00ffcc; border-bottom: 2px solid #00ffcc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background-color: #050510;
+  border: 2px solid #ff55aa;
+  padding: 10px;
 }
-.nav-btn {
-  background: none; border: none; color: #fff;
-  font-family: inherit; font-size: 8px; cursor: pointer; text-transform: uppercase;
-}
-.nav-btn.active { color: #ffff00; text-decoration: underline; }
-.star { color: #ffff00; font-size: 8px; }
 
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: #ff55aa;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.nav-btn.active, .nav-btn:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #ff55aa;
+}
+
+.star {
+  color: #ffcc00;
+  font-size: 10px;
+}
+
+/* Footer Marquee */
 .footer-marquee {
-  background-color: #000; color: #00ffcc; font-size: 6px;
-  padding: 8px 0; text-align: center; overflow: hidden; white-space: nowrap;
+  background-color: #00ffcc;
+  color: #000;
+  font-size: 8px;
+  padding: 6px;
+  text-align: center;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
 }
