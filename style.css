@@ -412,6 +412,9 @@ body {
   left: 25px;
   width: 22px;
   height: 38px;
+  z-index: 1;
+  /* Animação para retornar ao ponto inicial */
+  animation: walkAndPipeReverse 1s forwards;
 }
 
 .luigi-cap {
@@ -739,4 +742,67 @@ body {
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
+}
+
+/* ================= ANIMAÇÃO DO LUIGI NO CANO ================= */
+
+/* Estado inicial e regresso do Luigi ao ponto de partida */
+.luigi-character {
+  position: absolute;
+  bottom: 10px;
+  left: 25px;
+  width: 22px;
+  height: 38px;
+  z-index: 1;
+  animation: walkAndPipeReverse 1s forwards;
+}
+
+/* Quando o D-Pad (checkbox) for clicado */
+#pipe-trigger:checked ~ .ds-top .luigi-character {
+  animation: walkAndPipe 1.2s forwards;
+}
+
+/* Animação 1: Camimhar até ao cano e descer */
+@keyframes walkAndPipe {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(120px) translateY(0); /* Anda de lado até ao cano */
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120px) translateY(50px); /* Entra no cano */
+    opacity: 0;
+  }
+}
+
+/* Animação 2: Sair do cano e voltar ao ponto inicial */
+@keyframes walkAndPipeReverse {
+  0% {
+    transform: translateX(120px) translateY(50px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(120px) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* O cano fica por cima do Luigi quando ele descer */
+.pipe {
+  position: absolute;
+  right: 30px;
+  bottom: 0;
+  z-index: 2;
+}
+
+/* Cursor de clique na cruz */
+.dpad {
+  cursor: pointer;
 }

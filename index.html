@@ -82,30 +82,41 @@
           <div class="connection-line line-3"></div>
 
           <!-- Nintendo DS Centralizado -->
-          <div class="nintendo-ds">
-            <div class="ds-top">
-              <div class="mario-bg">
-                <div class="luigi-character">
-                  <div class="luigi-cap"><span class="l-logo">L</span></div>
-                  <div class="luigi-face"><div class="luigi-mustache"></div></div>
-                  <div class="luigi-shirt"></div>
-                  <div class="luigi-overalls">
-                    <div class="button btn-l"></div>
-                    <div class="button btn-r"></div>
-                  </div>
-                </div>
-                <div class="pipe"></div>
-              </div>
-              <span class="star-left">⭐</span>
-              <span class="star-right">⭐</span>
-            </div>
-            <div class="ds-hinge"></div>
-            <div class="ds-bottom">
-              <div class="dpad"><div class="dpad-v"></div><div class="dpad-h"></div></div>
-              <div class="touch-screen"></div>
-              <div class="action-buttons"><div class="btn"></div><div class="btn"></div></div>
-            </div>
-          </div>
+<div class="nintendo-ds">
+  
+  <!-- Checkbox invisível para controlar o clique via CSS -->
+  <input type="checkbox" id="pipe-trigger" style="display: none;">
+
+  <div class="ds-top">
+    <div class="mario-bg">
+      <div class="luigi-character">
+        <div class="luigi-cap"><span class="l-logo">L</span></div>
+        <div class="luigi-face"><div class="luigi-mustache"></div></div>
+        <div class="luigi-shirt"></div>
+        <div class="luigi-overalls">
+          <div class="button btn-l"></div>
+          <div class="button btn-r"></div>
+        </div>
+      </div>
+      <div class="pipe"></div>
+    </div>
+    <span class="star-left">⭐</span>
+    <span class="star-right">⭐</span>
+  </div>
+
+  <div class="ds-hinge"></div>
+
+  <div class="ds-bottom">
+    <!-- A cruz virou um label associado ao checkbox -->
+    <label for="pipe-trigger" class="dpad" title="Clique para o Luigi entrar no cano!">
+      <div class="dpad-v"></div>
+      <div class="dpad-h"></div>
+    </label>
+    <div class="touch-screen"></div>
+    <div class="action-buttons"><div class="btn"></div><div class="btn"></div></div>
+  </div>
+
+</div>
 
           <!-- Janela Superior Direita: Hello !! -->
           <div class="pink-window window-hello">
@@ -118,23 +129,40 @@
             </div>
           </div>
 
-          <!-- Janela Inferior Esquerda: Weapons Mastery -->
-          <div class="pink-window window-weapons">
-            <div class="win-header"><span>Weapons Mastery</span></div>
-            <div class="win-body icons">
-              <span>🐍</span> <span>🎨</span> <span>💻</span>
-            </div>
-          </div>
+       <!-- ================= QUADROS INFERIORES ORGANIZADOS ================= -->
+<div class="bottom-cards-container">
 
-          <!-- Janela Inferior Centro: Training Log -->
-          <div class="pink-window window-training">
-            <div class="win-header"><span>Training Log</span></div>
-            <div class="win-body">
-              <p><strong>Ciência da Computação</strong></p>
-              <p>Universidade Cruzeiro do Sul</p>
-              <p class="sub-text">Foco: Programação Python & Desenvolvimento de Soluções Tecnológicas</p>
-            </div>
-          </div>
+  <!-- Janela Inferior Esquerda: Weapons Mastery -->
+  <div class="pink-window window-weapons">
+    <div class="win-header"><span>Weapons Mastery</span></div>
+    <div class="win-body icons">
+      <span>🐍</span> <span>🎨</span> <span>💻</span>
+    </div>
+  </div>
+
+  <!-- Janela Inferior Centro: Training Log -->
+  <div class="pink-window window-training">
+    <div class="win-header"><span>Training Log</span></div>
+    <div class="win-body">
+      <p><strong>Ciência da Computação</strong></p>
+      <p>Universidade Cruzeiro do Sul</p>
+      <p class="sub-text">Foco: Programação Python & Desenvolvimento de Soluções Tecnológicas</p>
+    </div>
+  </div>
+
+  <!-- Janela Inferior Direita: Skills Mastery -->
+  <div class="pink-window window-skills">
+    <div class="win-header"><span>Skills Mastery</span></div>
+    <div class="win-body">
+      <ul>
+        <li>• Desenvolvimento Back-End (Python)</li>
+        <li>• Prototipagem & Design de Interfaces (Figma)</li>
+        <li>• Aprendizado contínuo & Resolução de Problemas</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
 
           <!-- Janela Inferior Direita: Skills Mastery -->
           <div class="pink-window window-skills">
